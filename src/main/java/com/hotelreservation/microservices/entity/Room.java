@@ -47,7 +47,5 @@ public class Room {
     @ManyToMany(mappedBy = "rooms")
     private List<Guest> guests = new ArrayList();
    */
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Booking booking;
 
 }
