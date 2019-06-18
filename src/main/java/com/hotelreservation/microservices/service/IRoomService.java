@@ -17,7 +17,7 @@ public interface IRoomService {
      * @param roomNumber
      * @return
      */
-    Room findByRoomNumber(String roomNumber) throws RoomNotFoundException;
+    RoomVO findByRoomNumber(String roomNumber) throws RoomNotFoundException;
 
     /**
      *

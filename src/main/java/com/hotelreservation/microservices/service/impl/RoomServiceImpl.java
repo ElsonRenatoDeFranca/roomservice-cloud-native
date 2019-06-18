@@ -32,9 +32,10 @@ public class RoomServiceImpl implements IRoomService {
     }
 
     @Override
-    public Room findByRoomNumber(String roomNumber) throws RoomNotFoundException {
+    public RoomVO findByRoomNumber(String roomNumber) throws RoomNotFoundException {
         return Optional.of(roomRepository.findByRoomNumber(roomNumber)).
-                orElseThrow(() -> new RoomNotFoundException(DemoAppConstants.ROOM_NOT_FOUND_ERROR_MESSAGE));
+                map(roomServiceConverter::convertEntityToVO).orElseThrow(() ->
+                new RoomNotFoundException (DemoAppConstants.ROOM_NOT_FOUND_ERROR_MESSAGE));
 
     }
 

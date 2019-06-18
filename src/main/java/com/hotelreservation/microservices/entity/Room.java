@@ -29,7 +29,7 @@ public class Room {
 
     @Id
     @Column(name="ROOM_ID")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Getter(AccessLevel.NONE)
     @Setter(AccessLevel.NONE)
     private Long id;

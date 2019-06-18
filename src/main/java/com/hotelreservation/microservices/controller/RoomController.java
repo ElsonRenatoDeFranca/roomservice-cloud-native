@@ -1,7 +1,6 @@
 package com.hotelreservation.microservices.controller;
 
 
-import com.hotelreservation.microservices.entity.Room;
 import com.hotelreservation.microservices.exceptions.RoomNotFoundException;
 import com.hotelreservation.microservices.service.IRoomService;
 import com.hotelreservation.microservices.vo.RoomVO;
@@ -34,11 +33,11 @@ public class RoomController {
 
     @RequestMapping(method=RequestMethod.GET,value="/api/rooms/{roomNumber}")
     @ApiOperation(value="Get room by number", notes="Gets an specific number", nickname="getSpecificRoomNumber")
-    public ResponseEntity<Room> retrieveRoomByNumber(@PathVariable String roomNumber)throws RoomNotFoundException{
+    public ResponseEntity<RoomVO> retrieveRoomByNumber(@PathVariable String roomNumber)throws RoomNotFoundException{
 
         try {
-            Room room = roomService.findByRoomNumber(roomNumber);
-            return new ResponseEntity<>(room, HttpStatus.OK);
+            RoomVO roomVO = roomService.findByRoomNumber(roomNumber);
+            return new ResponseEntity<>(roomVO, HttpStatus.OK);
 
         }catch(RoomNotFoundException roomNotFoundEx){
             System.err.println(roomNotFoundEx.getMessage());
