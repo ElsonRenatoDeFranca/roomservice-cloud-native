@@ -2,6 +2,7 @@ package com.hotelreservation.microservices.service;
 
 
 import com.hotelreservation.microservices.entity.Room;
+import com.hotelreservation.microservices.exceptions.RoomAlreadyExistsException;
 import com.hotelreservation.microservices.exceptions.RoomNotFoundException;
 import com.hotelreservation.microservices.vo.RoomVO;
 
@@ -24,5 +25,16 @@ public interface IRoomService {
      * @return
      */
     List<RoomVO> findAll();
+
+
+    /**
+     *
+     * @param newRoom
+     * @return
+     * @throws RoomAlreadyExistsException
+     */
+    RoomVO createNewRoom(Room newRoom) throws RoomAlreadyExistsException;
+
+
 
 }

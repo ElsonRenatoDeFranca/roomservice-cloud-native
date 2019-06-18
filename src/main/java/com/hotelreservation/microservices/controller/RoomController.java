@@ -1,6 +1,8 @@
 package com.hotelreservation.microservices.controller;
 
 
+import com.hotelreservation.microservices.entity.Room;
+import com.hotelreservation.microservices.exceptions.RoomAlreadyExistsException;
 import com.hotelreservation.microservices.exceptions.RoomNotFoundException;
 import com.hotelreservation.microservices.service.IRoomService;
 import com.hotelreservation.microservices.vo.RoomVO;
@@ -10,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -45,5 +48,18 @@ public class RoomController {
         }
 
     }
+
+    @RequestMapping(method=RequestMethod.POST, value="api/rooms")
+    @ApiOperation(value="Register a new room", notes="Create a new room in the Hotel", nickname="saveRoom")
+    public ResponseEntity<RoomVO> registerNewGuest(@RequestBody Room room) {
+        RoomVO createdRoom = null;
+        try {
+            createdRoom = roomService.createNewRoom(room);
+            return new ResponseEntity<>(createdRoom, HttpStatus.OK);
+        } catch (RoomAlreadyExistsException e) {
+            return new ResponseEntity<>(createdRoom, HttpStatus.BAD_REQUEST);
+        }
+    }
+
 
 }

@@ -3,6 +3,7 @@ C:\Development\PetProjects\microservices\roomservice-cloud-native\src\main\java\
 C:\Development\PetProjects\microservices\roomservice-cloud-native\src\main\java\com\hotelreservation\microservices\exceptions\RoomNotFoundException.java
 C:\Development\PetProjects\microservices\roomservice-cloud-native\src\main\java\com\hotelreservation\microservices\vo\RoomVO.java
 C:\Development\PetProjects\microservices\roomservice-cloud-native\src\main\java\com\hotelreservation\microservices\converter\IRoomServiceConverter.java
+C:\Development\PetProjects\microservices\roomservice-cloud-native\src\main\java\com\hotelreservation\microservices\exceptions\RoomAlreadyExistsException.java
 C:\Development\PetProjects\microservices\roomservice-cloud-native\src\main\java\com\hotelreservation\microservices\exceptions\RoomFullException.java
 C:\Development\PetProjects\microservices\roomservice-cloud-native\src\main\java\com\hotelreservation\microservices\controller\RoomController.java
 C:\Development\PetProjects\microservices\roomservice-cloud-native\src\main\java\com\hotelreservation\microservices\constants\DemoAppConstants.java

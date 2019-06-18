@@ -1,6 +1,7 @@
 package com.hotelreservation.microservices.service.impl;
 
 import com.hotelreservation.microservices.converter.IRoomServiceConverter;
+import com.hotelreservation.microservices.exceptions.RoomAlreadyExistsException;
 import com.hotelreservation.microservices.exceptions.RoomNotFoundException;
 import com.hotelreservation.microservices.repository.RoomRepository;
 import com.hotelreservation.microservices.service.IRoomService;
@@ -38,5 +39,23 @@ public class RoomServiceImpl implements IRoomService {
                 new RoomNotFoundException (DemoAppConstants.ROOM_NOT_FOUND_ERROR_MESSAGE));
 
     }
+
+    @Override
+    public RoomVO createNewRoom(Room newRoom) throws RoomAlreadyExistsException {
+        Optional<Room> optionalRoom = Optional.ofNullable(roomRepository.findByRoomNumber(newRoom.getRoomNumber()));
+
+        if(!optionalRoom.isPresent()){
+            return Optional.of(roomRepository.save(newRoom)).
+                    map(roomServiceConverter::convertEntityToVO).
+                    orElseThrow(() -> new RoomAlreadyExistsException (DemoAppConstants.ROOM_ALREADY_EXISTS_ERROR_MESSAGE));
+        }else{
+            throw new RoomAlreadyExistsException (DemoAppConstants.ROOM_ALREADY_EXISTS_ERROR_MESSAGE);
+        }
+
+    }
+
+
+
+
 
 }
