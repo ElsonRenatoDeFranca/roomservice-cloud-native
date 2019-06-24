@@ -1,5 +1,7 @@
 # roomservice-cloud-native
 
+A cloud native webservice must be developed with the following changes in mind:
+
 1- The roomservice must be registered to Eureka server as an Eureka client. We must do that by adding the following annotation to the main class:
 
 @SpringBootApplication
