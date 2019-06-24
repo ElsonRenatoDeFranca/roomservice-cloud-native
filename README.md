@@ -4,27 +4,27 @@
 Add these dependencies for enabling the roomservice to be registered by Eureka Service Discovery
 
 <dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-config</artifactId>
 </dependency>
 
 <dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-eureka</artifactId>
-			<version>1.4.7.RELEASE</version>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-eureka</artifactId>
+	<version>1.4.7.RELEASE</version>
 </dependency>
 
 <dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>${spring-cloud.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+  <dependencies>
+	 <dependency>
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-dependencies</artifactId>
+		<version>${spring-cloud.version}</version>
+		<type>pom</type>
+		<scope>import</scope>
+	 </dependency>
+ </dependencies>
+</dependencyManagement>
 
 
 Change the main application to work as Eureka Client
