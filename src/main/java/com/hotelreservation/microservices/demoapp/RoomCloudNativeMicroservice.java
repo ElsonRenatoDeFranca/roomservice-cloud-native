@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.data.rest.RepositoryRestMvcAutoConfiguration;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -17,6 +18,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @ComponentScan({"com.hotelreservation.microservices.converter","com.hotelreservation.microservices.controller", "com.hotelreservation.microservices.service", "com.hotelreservation.microservices.service.impl"})
 @EnableCaching
 @EnableSwagger2
+@EnableDiscoveryClient
 public class RoomCloudNativeMicroservice {
 
 	public static void main(String[] args) {
