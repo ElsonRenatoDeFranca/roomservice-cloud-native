@@ -3,12 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.roomservice-cloud-native.webservices</groupId>
-	<artifactId>roomservice-cloud-native-webservices</artifactId>
+	<groupId>com.guestservice-cloud-native.webservices</groupId>
+	<artifactId>guestservice-cloud-native-webservices</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>roomservice-cloud-native-webservices</name>
+	<name>guestservice-cloud-native-webservices</name>
 	<description>Data services for the room domain for Landon Hotel</description>
 
 	<parent>
@@ -32,6 +32,10 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -62,45 +66,63 @@
 			<artifactId>httpclient</artifactId>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui -->
+		<!-- Required for enabling Swagger support - Begin -->
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.9.2</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
 			<version>2.9.2</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+		<!-- Required for enabling Swagger support -End -->
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>3.0.0</version>
+		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
+			<version>3.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cache</artifactId>
 		</dependency>
 
+		<!-- required for attaching the cloud native webservice to Eureka Server -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-eureka -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka</artifactId>
 			<version>1.4.7.RELEASE</version>
 		</dependency>
 
-
-
-
-
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0.3</version>
+		</dependency>
 
 
 	</dependencies>
+
+	<!-- required for attaching the cloud native webservice to Eureka Server -->
 
 	<dependencyManagement>
 		<dependencies>

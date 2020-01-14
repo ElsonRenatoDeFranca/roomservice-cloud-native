@@ -16,7 +16,6 @@ public class RoomServiceConverterImpl implements IRoomServiceConverter{
     public RoomVO convertEntityToVO(Room room) {
         RoomVO roomVO = new RoomVO();
         roomVO.setRoomNumber(room.getRoomNumber());
-        roomVO.setName(room.getName());
         roomVO.setBedInfo(room.getBedInfo());
 
         return roomVO;
@@ -26,7 +25,6 @@ public class RoomServiceConverterImpl implements IRoomServiceConverter{
     public Room convertVOToEntity(RoomVO roomVO) {
         Room room = new Room();
         room.setBedInfo(roomVO.getBedInfo());
-        room.setName(roomVO.getName());
         room.setRoomNumber(roomVO.getRoomNumber());
         return room;
     }

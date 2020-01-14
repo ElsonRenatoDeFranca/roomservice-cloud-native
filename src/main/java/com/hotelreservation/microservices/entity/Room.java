@@ -5,14 +5,12 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,20 +30,17 @@ public class Room {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Getter(AccessLevel.NONE)
     @Setter(AccessLevel.NONE)
-    private Long id;
+    private Long roomId;
 
-    @Column(name = "NAME", length = 16)
-    private String name;
-
-    @Column(name ="ROOM_NUMBER", length = 2)
+    @Column(name ="ROOM_NUMBER", length = 10)
     private String roomNumber;
 
-    @Column(name = "BED_INFO", length = 2)
+    @Column(name = "BED_INFO", length = 20)
     private String bedInfo;
 
-    /*@JsonIgnore
+    @JsonIgnore
     @ManyToMany(mappedBy = "rooms")
     private List<Guest> guests = new ArrayList();
-   */
+
 
 }
